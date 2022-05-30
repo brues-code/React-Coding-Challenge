@@ -14,7 +14,7 @@ const Dashboard: React.FC = () => {
         <>
             <SiteTitle documentTitle={formatMessage({ id: 'index' })} />
             <Header>
-                <AumniLogo src={logo} alt="Aumni Logo" />
+                <AumniLogo src={logo} alt={formatMessage({ id: 'aumni.logo.alt' })} />
             </Header>
             {funds.map(fund => {
                 return <React.Fragment key={fund.id}>{fund.name}</React.Fragment>;
