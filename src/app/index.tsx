@@ -3,6 +3,7 @@ import { RouteObject, useRoutes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import AppContextProvider from 'app/context/AppContext';
+import Dashboard from './Dashboard';
 
 import { color } from 'styles/theme';
 import { OutsideWrapper, MiddleWrapper, InnerContent } from './styles';
@@ -15,8 +16,8 @@ const Routes = () => {
 
     const routes: RouteObject[] = [
         {
-            path: '/',
-            element: <>123</>
+            index: true,
+            element: <Dashboard />
         },
         ...ventureRoutes
     ];

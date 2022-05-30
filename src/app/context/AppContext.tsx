@@ -1,4 +1,4 @@
-import React, { createContext, FC, useContext, useMemo } from 'react';
+import React, { createContext, FC, useContext } from 'react';
 
 import { Venture } from 'types/venture';
 
@@ -8,18 +8,14 @@ interface State {
     ventures: Venture[];
 }
 
-interface ApiProps {}
-
-type AppState = State & ApiProps;
-
-const initialState: AppState = {
+const initialState: State = {
     ventures: []
 };
 
 export const AppContext = createContext(initialState);
 
 const AppContextProvider: FC = ({ children }) => {
-    const contextState: AppState = useMemo(() => ({ ventures: funds }), []);
+    const contextState: State = { ventures: funds };
 
     return <AppContext.Provider value={contextState}>{children}</AppContext.Provider>;
 };
