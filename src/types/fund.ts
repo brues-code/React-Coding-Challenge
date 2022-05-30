@@ -1,6 +1,6 @@
 import { Company } from './company';
 
-export interface Venture {
+export interface Fund {
     id: number;
     name: string;
     companies: Company[];

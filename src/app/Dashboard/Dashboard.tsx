@@ -1,15 +1,17 @@
 import * as React from 'react';
+import { useIntl } from 'react-intl';
 
 import { useApp } from 'app/context/AppContext';
 import SiteTitle from 'app/components/SiteTitle';
 
 const Dashboard: React.FC = () => {
-    const { ventures } = useApp();
+    const { funds } = useApp();
+    const { formatMessage } = useIntl();
     return (
         <>
-            <SiteTitle />
-            {ventures.map(venture => {
-                return <React.Fragment key={venture.id}>{venture.name}</React.Fragment>;
+            <SiteTitle documentTitle={formatMessage({ id: 'index' })} />
+            {funds.map(fund => {
+                return <React.Fragment key={fund.id}>{fund.name}</React.Fragment>;
             })}
         </>
     );
