@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { RouteObject, useRoutes } from 'react-router-dom';
 
+import AppContextProvider from 'app/context/AppContext';
+
 const Routes = () => {
     const routes: RouteObject[] = ['/', '/:ventureId', '/:ventureId/:companyId'].map(path => ({
         path,
@@ -10,14 +12,8 @@ const Routes = () => {
     return useRoutes(routes);
 };
 
-const App: React.FC = () => {
-    return (
-        <>
-            <div id="tooltip-root" />
-            <div id="modal-root" />
-            {Routes()}
-        </>
-    );
+const App = () => {
+    return <AppContextProvider>{Routes()}</AppContextProvider>;
 };
 
 export default App;
