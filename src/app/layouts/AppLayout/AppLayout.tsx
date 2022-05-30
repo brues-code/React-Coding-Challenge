@@ -15,7 +15,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children, renderSidebar }) => {
             <Topbar />
             <AppContainer>
                 {renderSidebar && <Sidebar />}
-                <AppBodyContainer>{children}</AppBodyContainer>
+                <AppBodyContainer sidebarVisible={renderSidebar}>{children}</AppBodyContainer>
             </AppContainer>
         </>
     );

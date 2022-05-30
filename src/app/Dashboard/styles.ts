@@ -5,8 +5,3 @@ export const Header = styled.div`
     justify-content: center;
     align-content: center;
 `;
-
-export const AumniLogo = styled.img`
-    width: 470px;
-    height: 139px;
-`;

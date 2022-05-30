@@ -23,11 +23,19 @@ const Routes = () => {
         },
         {
             path: '/:ventureId',
-            element: <>1</>
+            element: (
+                <AppLayout renderSidebar>
+                    123
+                </AppLayout>
+            )
         },
         {
             path: '/:ventureId/:companyId',
-            element: <>2</>
+            element: (
+                <AppLayout renderSidebar>
+                    asdasd
+                </AppLayout>
+            )
         }
     ];
 

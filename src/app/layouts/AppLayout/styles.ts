@@ -1,25 +1,28 @@
 import styled from 'styled-components';
 
+import { SIDEBAR_WIDTH, TOPBAR_HEIGHT } from 'app/app-constants';
+
+interface AppBodyContainerProps {
+    sidebarVisible?: boolean;
+}
+
 export const AppContainer = styled.div`
     display: flex;
     position: relative;
     width: 100%;
     z-index: 1;
-    @media (max-width: 768px) {
-        display: block;
-    }
 `;
 
-export const AppBodyContainer = styled.div`
+export const AppBodyContainer = styled.div<AppBodyContainerProps>`
     position: absolute;
-    top: 48px;
+    top: ${TOPBAR_HEIGHT};
     @media (min-width: 768px) {
-        width: calc(100% - 56px);
+        width: calc(100% - ${props => (props.sidebarVisible ? SIDEBAR_WIDTH : '0px')});
         right: 0;
     }
     @media (max-width: 765px) {
         width: 100%;
     }
     z-index: 1;
-    height: calc(100vh - 48px);
+    height: ${props => `calc(100vh - ${TOPBAR_HEIGHT})`};
 `;
