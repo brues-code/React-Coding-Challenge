@@ -6,41 +6,40 @@ import AppContextProvider from 'app/context/AppContext';
 import IntlContext from 'app/context/IntlContext';
 
 import Dashboard from './Dashboard';
+import AppLayout from './layouts/AppLayout';
 
 import { color } from 'styles/theme';
 import { OutsideWrapper, MiddleWrapper, InnerContent } from './styles';
 
 const Routes = () => {
-    const ventureRoutes: RouteObject[] = ['/:ventureId/:companyId'].map(path => ({
-        path,
-        element: <>asd</>
-    }));
-
     const routes: RouteObject[] = [
         {
             index: true,
-            element: <Dashboard />
+            element: (
+                <AppLayout>
+                    <Dashboard />
+                </AppLayout>
+            )
         },
-        ...ventureRoutes
+        {
+            path: '/:ventureId',
+            element: <>1</>
+        },
+        {
+            path: '/:ventureId/:companyId',
+            element: <>2</>
+        }
     ];
 
     return useRoutes(routes);
 };
 
-const App = () => {
-    return (
-        <ThemeProvider theme={{ color }}>
-            <AppContextProvider>
-                <IntlContext>
-                    <OutsideWrapper>
-                        <MiddleWrapper>
-                            <InnerContent>{Routes()}</InnerContent>
-                        </MiddleWrapper>
-                    </OutsideWrapper>
-                </IntlContext>
-            </AppContextProvider>
-        </ThemeProvider>
-    );
-};
+const App = () => (
+    <ThemeProvider theme={{ color }}>
+        <AppContextProvider>
+            <IntlContext>{Routes()}</IntlContext>
+        </AppContextProvider>
+    </ThemeProvider>
+);
 
 export default App;

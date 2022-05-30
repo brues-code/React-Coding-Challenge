@@ -16,9 +16,9 @@ const Dashboard: React.FC = () => {
             <Header>
                 <AumniLogo src={logo} alt={formatMessage({ id: 'aumni.logo.alt' })} />
             </Header>
-            {funds.map(fund => {
-                return <React.Fragment key={fund.id}>{fund.name}</React.Fragment>;
-            })}
+            {funds.map(fund => (
+                <React.Fragment key={fund.id}>{fund.name}</React.Fragment>
+            ))}
         </>
     );
 };
