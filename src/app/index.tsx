@@ -1,17 +1,17 @@
 import * as React from 'react';
-import { RouteObject, useRoutes } from 'react-router-dom';
+import { RouteObject, useRoutes, BrowserRouter } from 'react-router-dom';
 import AppContextProvider from 'app/context/AppContext';
 
 const Routes = () => {
     const ventureRoutes: RouteObject[] = ['/:ventureId', '/:ventureId/:companyId'].map(path => ({
         path,
-        element: <>asd</>
+        element: <div>asd</div>
     }));
 
     const routes: RouteObject[] = [
         {
             path: '/',
-            element: <>123</>
+            element: <div>123</div>
         },
         ...ventureRoutes
     ];
