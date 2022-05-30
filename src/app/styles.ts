@@ -18,6 +18,7 @@ export const MiddleWrapper = styled.div`
 
 export const InnerContent = styled.div`
     width: 675px;
+    height: 100%;
     max-width: 100vw;
     margin: 0 auto;
 `;
