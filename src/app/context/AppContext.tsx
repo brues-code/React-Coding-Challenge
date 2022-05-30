@@ -35,15 +35,7 @@ const AppContextProvider: FC = ({ children }) => {
 
     const [currentLocale] = useState(cookies[Cookies.LOCALE] || initialState.currentLocale);
 
-    const selectedFund = useMemo(
-        () =>
-            (fundId &&
-                funds.find(fund => {
-                    return fund.id === Number(fundId);
-                })) ||
-            null,
-        [fundId]
-    );
+    const selectedFund = useMemo(() => (fundId && funds.find(fund => fund.id === Number(fundId))) || null, [fundId]);
 
     const selectedCompany = useMemo(
         () =>
