@@ -1,0 +1,23 @@
+import styled from 'styled-components';
+
+export const OutsideWrapper = styled.div`
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: ${props => props.theme.color.$OffWhite};
+    background-size: cover;
+`;
+
+export const MiddleWrapper = styled.div`
+    display: table-cell;
+    vertical-align: middle;
+`;
+
+export const InnerContent = styled.div`
+    width: 675px;
+    max-width: 100vw;
+    margin: 0 auto;
+`;

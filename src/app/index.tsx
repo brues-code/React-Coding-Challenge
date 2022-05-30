@@ -5,17 +5,18 @@ import { ThemeProvider } from 'styled-components';
 import AppContextProvider from 'app/context/AppContext';
 
 import { color } from 'styles/theme';
+import { OutsideWrapper, MiddleWrapper, InnerContent } from './styles';
 
 const Routes = () => {
     const ventureRoutes: RouteObject[] = ['/:ventureId', '/:ventureId/:companyId'].map(path => ({
         path,
-        element: <div>asd</div>
+        element: <>asd</>
     }));
 
     const routes: RouteObject[] = [
         {
             path: '/',
-            element: <div>123</div>
+            element: <>123</>
         },
         ...ventureRoutes
     ];
@@ -26,7 +27,13 @@ const Routes = () => {
 const App = () => {
     return (
         <ThemeProvider theme={{ color }}>
-            <AppContextProvider>{Routes()}</AppContextProvider>
+            <AppContextProvider>
+                <OutsideWrapper>
+                    <MiddleWrapper>
+                        <InnerContent>{Routes()}</InnerContent>
+                    </MiddleWrapper>
+                </OutsideWrapper>
+            </AppContextProvider>
         </ThemeProvider>
     );
 };
