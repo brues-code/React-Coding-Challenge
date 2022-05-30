@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { RouteObject, useRoutes, BrowserRouter } from 'react-router-dom';
+import { RouteObject, useRoutes } from 'react-router-dom';
+
 import AppContextProvider from 'app/context/AppContext';
 
 const Routes = () => {
