@@ -3,13 +3,15 @@ import { RouteObject, useRoutes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import AppContextProvider from 'app/context/AppContext';
+import IntlContext from 'app/context/IntlContext';
+
 import Dashboard from './Dashboard';
 
 import { color } from 'styles/theme';
 import { OutsideWrapper, MiddleWrapper, InnerContent } from './styles';
 
 const Routes = () => {
-    const ventureRoutes: RouteObject[] = ['/:ventureId', '/:ventureId/:companyId'].map(path => ({
+    const ventureRoutes: RouteObject[] = ['/:ventureId/:companyId'].map(path => ({
         path,
         element: <>asd</>
     }));
@@ -29,11 +31,13 @@ const App = () => {
     return (
         <ThemeProvider theme={{ color }}>
             <AppContextProvider>
-                <OutsideWrapper>
-                    <MiddleWrapper>
-                        <InnerContent>{Routes()}</InnerContent>
-                    </MiddleWrapper>
-                </OutsideWrapper>
+                <IntlContext>
+                    <OutsideWrapper>
+                        <MiddleWrapper>
+                            <InnerContent>{Routes()}</InnerContent>
+                        </MiddleWrapper>
+                    </OutsideWrapper>
+                </IntlContext>
             </AppContextProvider>
         </ThemeProvider>
     );
