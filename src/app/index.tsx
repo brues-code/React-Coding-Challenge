@@ -8,6 +8,7 @@ import IntlContext from 'app/context/IntlContext';
 import Dashboard from './Dashboard';
 import AppLayout from './layouts/AppLayout';
 
+import './App.css';
 import { color } from 'styles/theme';
 import { OutsideWrapper, MiddleWrapper, InnerContent } from './styles';
 
