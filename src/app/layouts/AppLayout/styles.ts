@@ -16,13 +16,8 @@ export const AppContainer = styled.div`
 export const AppBodyContainer = styled.div<AppBodyContainerProps>`
     position: absolute;
     top: ${TOPBAR_HEIGHT};
-    @media (min-width: 768px) {
-        width: calc(100% - ${props => (props.sidebarVisible ? SIDEBAR_WIDTH : '0px')});
-        right: 0;
-    }
-    @media (max-width: 765px) {
-        width: 100%;
-    }
+    width: calc(100% - ${props => (props.sidebarVisible ? SIDEBAR_WIDTH : '0px')});
+    right: 0;
     z-index: 1;
-    height: ${props => `calc(100vh - ${TOPBAR_HEIGHT})`};
+    height: calc(100vh - ${TOPBAR_HEIGHT});
 `;

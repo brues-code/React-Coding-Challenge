@@ -2,41 +2,29 @@ import * as React from 'react';
 import { RouteObject, useRoutes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
+import { FUND, COMPANY } from './route-paths';
+
 import AppContextProvider from 'app/context/AppContext';
 import IntlContext from 'app/context/IntlContext';
-
 import Dashboard from './Dashboard';
 import AppLayout from './layouts/AppLayout';
 
 import './App.css';
 import { color } from 'styles/theme';
-import { OutsideWrapper, MiddleWrapper, InnerContent } from './styles';
 
 const Routes = () => {
     const routes: RouteObject[] = [
         {
             index: true,
-            element: (
-                <AppLayout>
-                    <Dashboard />
-                </AppLayout>
-            )
+            element: <Dashboard />
         },
         {
-            path: '/:ventureId',
-            element: (
-                <AppLayout renderSidebar>
-                    123
-                </AppLayout>
-            )
+            path: FUND,
+            element: <>FUND_PATH</>
         },
         {
-            path: '/:ventureId/:companyId',
-            element: (
-                <AppLayout renderSidebar>
-                    asdasd
-                </AppLayout>
-            )
+            path: COMPANY,
+            element: <>COMPANY_PATH</>
         }
     ];
 
@@ -46,7 +34,9 @@ const Routes = () => {
 const App = () => (
     <ThemeProvider theme={{ color }}>
         <AppContextProvider>
-            <IntlContext>{Routes()}</IntlContext>
+            <IntlContext>
+                <AppLayout>{Routes()}</AppLayout>
+            </IntlContext>
         </AppContextProvider>
     </ThemeProvider>
 );

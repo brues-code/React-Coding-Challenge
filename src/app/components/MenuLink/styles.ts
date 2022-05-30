@@ -10,6 +10,7 @@ export const NavLinkStyled = styled(NavLink)<NavLinkProps>`
     padding: 0 10.5px;
     border-radius: 2px;
     margin: 4px 0;
+    border: 1px solid black;
     &:first-of-type {
         margin-top: 0;
     }
@@ -20,7 +21,6 @@ export const NavLinkStyled = styled(NavLink)<NavLinkProps>`
         background-color: rgba(255, 255, 255, 0.16);
     }
 `;
-
 
 export const MenuLinkLabel = styled.span`
     font-family: IBMPlexSans-Medium, sans-serif;

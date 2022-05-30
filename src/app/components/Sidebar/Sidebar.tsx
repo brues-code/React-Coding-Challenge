@@ -8,7 +8,8 @@ const Sidebar: React.FC = () => {
     return (
         <SidebarContainer>
             <MenuContainer>
-                <MenuLink to="/">Home</MenuLink>
+                <MenuLink to="/">Company 1</MenuLink>
+                <MenuLink to="/">Company 2</MenuLink>
             </MenuContainer>
         </SidebarContainer>
     );

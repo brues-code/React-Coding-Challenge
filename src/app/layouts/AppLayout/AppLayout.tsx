@@ -1,15 +1,15 @@
-import * as React from 'react';
+import React, { useMemo } from 'react';
+
+import { useApp } from 'app/context/AppContext';
 
 import Topbar from 'app/components/Topbar';
 import Sidebar from 'app/components/Sidebar';
 
 import { AppBodyContainer, AppContainer } from './styles';
 
-export interface AppLayoutProps {
-    renderSidebar?: boolean;
-}
-
-const AppLayout: React.FC<AppLayoutProps> = ({ children, renderSidebar }) => {
+const AppLayout: React.FC = ({ children }) => {
+    const { selectedFund } = useApp();
+    const renderSidebar = useMemo(() => Boolean(selectedFund), [selectedFund]);
     return (
         <>
             <Topbar />

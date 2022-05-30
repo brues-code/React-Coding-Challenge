@@ -1,15 +1,19 @@
 import * as React from 'react';
 import { useIntl } from 'react-intl';
 
+import { HOME } from 'app/route-paths';
+
 import logo from 'images/logo.png';
-import { TopbarContainer, Header, AumniLogo } from './styles';
+import { TopbarContainer, Header, AumniLogo, LogoLink } from './styles';
 
 const Topbar: React.FC = () => {
     const { formatMessage } = useIntl();
     return (
         <TopbarContainer>
             <Header>
-                <AumniLogo src={logo} alt={formatMessage({ id: 'aumni.logo.alt' })} />
+                <LogoLink to={HOME}>
+                    <AumniLogo src={logo} alt={formatMessage({ id: 'aumni.logo.alt' })} />
+                </LogoLink>
             </Header>
         </TopbarContainer>
     );
