@@ -29,6 +29,7 @@ const Sidebar: FC = () => {
                     key={company.id}
                     selected={Boolean(selectedCompany?.id === company.id)}
                     to={generateUrl(selectedFund!.id, company.id)}
+                    avatar={{ alt: company.name, src: company.logo }}
                 >
                     {company.name}
                 </ListItemLink>
