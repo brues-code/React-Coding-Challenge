@@ -26,3 +26,7 @@ export const AumniLogo = styled.img`
     width: 100%;
     height: 100%;
 `;
+
+export const FundSelectorContainer = styled.div`
+    padding: 16px;
+`;
