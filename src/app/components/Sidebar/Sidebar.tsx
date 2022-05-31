@@ -1,34 +1,47 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo, FC } from 'react';
+import { useIntl } from 'react-intl';
+import { List } from '@material-ui/core';
 
-import { Company } from 'types/company';
 import { generateUrl } from 'app/route-paths';
 
 import { useApp } from 'app/context/AppContext';
-import MenuLink from 'app/components/MenuLink';
+import ListItemLink from 'app/components/ListItemLink';
 
-import { SidebarContainer, MenuContainer } from './styles';
+import { SidebarContainer } from './styles';
 
-const Sidebar: React.FC = () => {
+const Sidebar: FC = () => {
     const { selectedCompany, selectedFund } = useApp();
+    const { formatMessage } = useIntl();
 
-    const renderMenuLink = useCallback(
-        (company: Company) =>
-            selectedFund && (
-                <MenuLink key={company.id} to={generateUrl(selectedFund.id, company.id)}>
-                    {company.name}
-                </MenuLink>
-            ),
-        [selectedFund]
+    const renderFundLink = useMemo(
+        () => (
+            <ListItemLink key={selectedFund!.name} selected={!selectedCompany} to={generateUrl(selectedFund!.id)}>
+                {formatMessage({ id: 'sidebar.fund.overview.link' })}
+            </ListItemLink>
+        ),
+        [selectedFund, formatMessage, selectedCompany]
     );
 
-    const renderFundCompanies = useMemo(() => selectedFund && selectedFund.companies.map(renderMenuLink), [
-        selectedFund,
-        renderMenuLink
-    ]);
+    const renderFundCompanies = useMemo(
+        () =>
+            selectedFund!.companies.map(company => (
+                <ListItemLink
+                    key={company.id}
+                    selected={Boolean(selectedCompany?.id === company.id)}
+                    to={generateUrl(selectedFund!.id, company.id)}
+                >
+                    {company.name}
+                </ListItemLink>
+            )),
+        [selectedFund, selectedCompany]
+    );
 
     return (
         <SidebarContainer>
-            <MenuContainer>{renderFundCompanies}</MenuContainer>
+            <List>
+                {renderFundLink}
+                {renderFundCompanies}
+            </List>
         </SidebarContainer>
     );
 };
