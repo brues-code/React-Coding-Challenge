@@ -4,6 +4,4 @@ export const COMPANY = `${FUND}/:companyId`;
 
 type IdType = string | number;
 
-export function generateUrl(fundId: IdType, companyId?: IdType) {
-    return `/${fundId}/${companyId ? companyId : ''}`;
-}
+export const generateUrl = (fundId: IdType, companyId?: IdType) => `/${fundId}${companyId ? '/' + companyId : ''}`;
