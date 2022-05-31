@@ -27,12 +27,7 @@ const Dropdown: FC<OwnProps> = ({ label, selectedOption, options, placeholder, .
 
     const renderSelect = useMemo(
         () => (
-            <Select
-                labelId={label ? 'select-filled-label' : undefined}
-                id="select-filled"
-                value={selectedOption}
-                {...restProps}
-            >
+            <Select labelId={label ? 'select-filled-label' : undefined} value={selectedOption} {...restProps}>
                 {placeholder && (
                     <MenuItem value="" disabled>
                         {placeholder}
@@ -47,7 +42,7 @@ const Dropdown: FC<OwnProps> = ({ label, selectedOption, options, placeholder, .
     const renderLabel = useMemo(() => label && <InputLabel id="select-filled-label">{label}</InputLabel>, [label]);
 
     return (
-        <FormControl variant="filled">
+        <FormControl>
             {renderLabel}
             {renderSelect}
         </FormControl>
