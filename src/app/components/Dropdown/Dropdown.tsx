@@ -1,5 +1,5 @@
 import React, { FC, ReactNode, useMemo } from 'react';
-import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import { FormControl, InputLabel, Select, MenuItem, SelectProps } from '@material-ui/core';
 
 type ValueType = string | number | undefined;
 
@@ -8,15 +8,13 @@ interface MenuOption {
     label: ReactNode;
 }
 
-interface OwnProps {
+interface OwnProps extends SelectProps {
     label?: ReactNode;
-    placeholder?: string;
     selectedOption: ValueType;
     options: MenuOption[];
-    onChange: (newValue: ValueType) => void;
 }
 
-const Dropdown: FC<OwnProps> = ({ label, selectedOption, options, onChange, placeholder }) => {
+const Dropdown: FC<OwnProps> = ({ label, selectedOption, options, placeholder, ...restProps }) => {
     const renderItems = useMemo(
         () =>
             options.map(({ value, label }) => (
@@ -33,7 +31,7 @@ const Dropdown: FC<OwnProps> = ({ label, selectedOption, options, onChange, plac
                 labelId={label ? 'select-filled-label' : undefined}
                 id="select-filled"
                 value={selectedOption}
-                onChange={e => onChange(e.target.value as ValueType)}
+                {...restProps}
             >
                 {placeholder && (
                     <MenuItem value="" disabled>
@@ -43,7 +41,7 @@ const Dropdown: FC<OwnProps> = ({ label, selectedOption, options, onChange, plac
                 {renderItems}
             </Select>
         ),
-        [selectedOption, placeholder, renderItems, label, onChange]
+        [selectedOption, placeholder, renderItems, label, restProps]
     );
 
     const renderLabel = useMemo(() => label && <InputLabel id="select-filled-label">{label}</InputLabel>, [label]);
