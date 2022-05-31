@@ -17,7 +17,7 @@ const Sidebar: FC = () => {
     const renderFundLink = useMemo(
         () => (
             <ListItemLink
-                icon={<MonetizationOn />}
+                avatar={<MonetizationOn />}
                 key={selectedFund!.name}
                 selected={!selectedCompany}
                 to={generateUrl(selectedFund!.id)}
