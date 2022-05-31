@@ -14,12 +14,12 @@ const FundSelector: FC = () => {
 
     const fundOptions = useMemo(() => funds.map(fund => ({ value: fund.id, label: fund.name })), [funds]);
 
-    const handleChange = useCallback((id: number) => navigate(generateUrl(id ? id : HOME)), [navigate]);
+    const handleChange = useCallback((id: string) => navigate(generateUrl(id ? id : HOME)), [navigate]);
 
     return (
         <Dropdown
             displayEmpty
-            onChange={e => handleChange(Number(e.target.value))}
+            onChange={e => handleChange(String(e.target.value))}
             options={fundOptions}
             placeholder={formatMessage({ id: 'fundSelector.dropdown.placeholder' })}
             selectedOption={selectedFund?.id || ''}
