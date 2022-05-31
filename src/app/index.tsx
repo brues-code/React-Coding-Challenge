@@ -7,6 +7,8 @@ import { FUND, COMPANY } from './route-paths';
 import AppContextProvider from 'app/context/AppContext';
 import IntlContext from 'app/context/IntlContext';
 import Dashboard from './Dashboard';
+import Fund from './Fund';
+import Company from './Company';
 import AppLayout from './layouts/AppLayout';
 
 import './App.css';
@@ -20,11 +22,11 @@ const Routes = () => {
         },
         {
             path: FUND,
-            element: <>FUND_PATH</>
+            element: <Fund />
         },
         {
             path: COMPANY,
-            element: <>COMPANY_PATH</>
+            element: <Company />
         }
     ];
 
