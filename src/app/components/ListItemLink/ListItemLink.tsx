@@ -1,15 +1,25 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { ListItem, ListItemText, LinkProps, ListItemAvatar, Avatar, AvatarProps } from '@material-ui/core';
+import {
+    Avatar,
+    AvatarProps,
+    LinkProps,
+    ListItem,
+    ListItemAvatar,
+    ListItemIcon,
+    ListItemText
+} from '@material-ui/core';
 
 interface OwnProps extends Omit<LinkProps, 'ref'> {
+    avatar?: AvatarProps;
+    icon?: ReactNode;
     selected?: boolean;
     to: string;
-    avatar?: AvatarProps;
 }
 
-const ListItemLink: FC<OwnProps> = ({ to, children, avatar, ...rest }) => (
+const ListItemLink: FC<OwnProps> = ({ to, children, avatar, icon, ...rest }) => (
     <ListItem button component={Link} to={to} {...rest}>
+        {icon && <ListItemIcon>{icon}</ListItemIcon>}
         {avatar && (
             <ListItemAvatar>
                 <Avatar {...avatar} />

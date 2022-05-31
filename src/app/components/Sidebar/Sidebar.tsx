@@ -1,6 +1,7 @@
 import React, { useMemo, FC } from 'react';
 import { useIntl } from 'react-intl';
 import { List } from '@material-ui/core';
+import { MonetizationOn } from '@material-ui/icons';
 
 import { generateUrl } from 'app/route-paths';
 
@@ -15,7 +16,12 @@ const Sidebar: FC = () => {
 
     const renderFundLink = useMemo(
         () => (
-            <ListItemLink key={selectedFund!.name} selected={!selectedCompany} to={generateUrl(selectedFund!.id)}>
+            <ListItemLink
+                icon={<MonetizationOn />}
+                key={selectedFund!.name}
+                selected={!selectedCompany}
+                to={generateUrl(selectedFund!.id)}
+            >
                 {formatMessage({ id: 'sidebar.fund.overview.link' })}
             </ListItemLink>
         ),
