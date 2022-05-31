@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Page = styled.div`
+    font-family: IBMPlexSans-Regular, sans-serif;
+    font-stretch: normal;
+    font-style: normal;
     margin: 50px auto;
     text-align: center;
-    width: 384px;
-    font-family: IBMPlexSans-Regular, sans-serif;
-    font-style: normal;
-    font-stretch: normal;
+    width: 100%;
 `;
 
 export const HeaderMessage = styled.div`
