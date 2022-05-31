@@ -9,10 +9,6 @@ import { useRoutingParams } from 'app/hooks/use-routing-params';
 
 import funds from 'mocks/funds.json';
 
-import { useLocation, useParams } from 'react-router';
-import { RouteParams } from '../../types/route-params';
-import { useMatch } from 'react-router-dom';
-
 interface State {
     funds: Fund[];
     selectedFund: Fund | null;
