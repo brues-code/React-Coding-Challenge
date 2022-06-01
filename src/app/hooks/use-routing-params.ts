@@ -6,5 +6,5 @@ import { COMPANY, FUND } from '../route-paths';
 export const useRoutingParams = (): RouteParams => {
     const { pathname } = useLocation();
     const matchedPath = matchPath(COMPANY, pathname) || matchPath(FUND, pathname);
-    return matchedPath ? { ...matchedPath.params } : {};
+    return matchedPath ? matchedPath.params : {};
 };
