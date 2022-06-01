@@ -33,7 +33,7 @@ const Sidebar: FC = () => {
             selectedFund!.companies.map(company => (
                 <ListItemLink
                     key={company.id}
-                    selected={Boolean(selectedCompany?.id === company.id)}
+                    selected={selectedCompany?.id === company.id}
                     to={generateUrl(selectedFund!.id, company.id)}
                     avatar={{ alt: company.name, src: company.logo }}
                 >
