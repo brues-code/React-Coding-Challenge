@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import { useIntl } from 'react-intl';
 
@@ -8,7 +8,10 @@ interface Props {
 
 const SiteTitle: React.FC<Props> = ({ documentTitle }) => {
     const { formatMessage } = useIntl();
-    const title = formatMessage({ id: documentTitle ? 'siteHeader' : 'default.document.title' }, { documentTitle });
+    const title = useMemo(
+        () => formatMessage({ id: documentTitle ? 'siteHeader' : 'default.document.title' }, { documentTitle }),
+        [documentTitle, formatMessage]
+    );
     return <Helmet title={title} />;
 };
 
