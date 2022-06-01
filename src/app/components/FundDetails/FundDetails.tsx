@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import { useIntl } from 'react-intl';
+import { CardActions, CardContent, Typography } from '@material-ui/core';
 
 import { generateUrl } from 'app/route-paths';
 import { Fund } from 'types/fund';
 
 import RouteLink from 'app/components/RouteLink';
 
-import { FundPaper, DetailRow } from './styles';
+import { FundCard } from './styles';
 
 interface OwnProps {
     fund: Fund;
@@ -14,13 +15,21 @@ interface OwnProps {
 
 const FundDetails: FC<OwnProps> = ({ fund }) => {
     const { formatMessage } = useIntl();
+
     return (
-        <FundPaper key={fund.id}>
-            <RouteLink to={generateUrl(fund.id)}>{fund.name}</RouteLink>
-            <DetailRow>
-                {formatMessage({ id: 'fundIndex.companies.number' }, { numberOfCompanies: fund.companies.length })}
-            </DetailRow>
-        </FundPaper>
+        <FundCard key={fund.id}>
+            <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                    {fund.name}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                    {formatMessage({ id: 'fundIndex.companies.number' }, { numberOfCompanies: fund.companies.length })}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <RouteLink to={generateUrl(fund.id)}>{formatMessage({ id: 'fundIndex.viewMore.link' })}</RouteLink>
+            </CardActions>
+        </FundCard>
     );
 };
 

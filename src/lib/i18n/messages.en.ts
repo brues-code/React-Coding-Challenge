@@ -5,6 +5,7 @@ const messages: Messages = {
     'aumni.logo.alt': 'Aumni Fund',
     'default.document.title': 'Aumni Fund',
     'fundIndex.companies.number': 'Companies invested: {numberOfCompanies}',
+    'fundIndex.viewMore.link': 'View Fund',
     'fundSelector.dropdown.placeholder': 'Select a fund',
     'sidebar.fund.overview.link': 'Fund Overview',
     index: 'Index',
