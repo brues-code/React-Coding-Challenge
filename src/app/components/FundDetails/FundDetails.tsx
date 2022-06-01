@@ -4,10 +4,9 @@ import { useIntl } from 'react-intl';
 import { generateUrl } from 'app/route-paths';
 import { Fund } from 'types/fund';
 
-import { useApp } from 'app/context/AppContext';
 import RouteLink from 'app/components/RouteLink';
 
-import { FundPaper } from './styles';
+import { FundPaper, DetailRow } from './styles';
 
 interface OwnProps {
     fund: Fund;
@@ -18,6 +17,9 @@ const FundDetails: FC<OwnProps> = ({ fund }) => {
     return (
         <FundPaper key={fund.id}>
             <RouteLink to={generateUrl(fund.id)}>{fund.name}</RouteLink>
+            <DetailRow>
+                {formatMessage({ id: 'fundIndex.companies.number' }, { numberOfCompanies: fund.companies.length })}
+            </DetailRow>
         </FundPaper>
     );
 };

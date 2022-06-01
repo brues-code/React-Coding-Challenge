@@ -2,10 +2,16 @@ import styled from 'styled-components';
 import { Paper } from '@material-ui/core';
 
 export const FundPaper = styled(Paper)`
-    height: 42px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    width: 50%;
     margin: 8px;
-    background-color: darkgrey;
+    max-height: 240px;
+    min-width: 185px;
+    width: 30%;
+`;
+
+export const DetailRow = styled.div`
+    text-align: center;
+    width: 100%;
 `;
