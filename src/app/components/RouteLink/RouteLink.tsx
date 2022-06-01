@@ -4,8 +4,8 @@ import { Link } from '@material-ui/core';
 
 type OwnProps = Pick<LinkProps, 'to'>;
 
-const RouteLink: FC<OwnProps> = ({ children, ...restProps }) => (
-    <Link component={RouterLink} {...restProps}>
+const RouteLink: FC<OwnProps> = ({ children, to }) => (
+    <Link component={RouterLink} to={to}>
         {children}
     </Link>
 );
