@@ -14,9 +14,11 @@ const Company: FC = () => {
     return (
         <>
             <SiteTitle documentTitle={selectedCompany.name} />
-            {funds.map(fund => (
-                <React.Fragment key={fund.id}>{fund.name}</React.Fragment>
-            ))}
+            {selectedCompany.name}
+            {selectedCompany.founded}
+            {selectedCompany.cost}
+            {selectedCompany.impliedValue}
+            {selectedCompany.ownershipPercentage}
         </>
     );
 };
