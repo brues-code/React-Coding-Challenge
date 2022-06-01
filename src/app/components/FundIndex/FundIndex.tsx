@@ -5,8 +5,9 @@ import { generateUrl } from 'app/route-paths';
 
 import { useApp } from 'app/context/AppContext';
 import RouteLink from 'app/components/RouteLink';
+import FundDetails from 'app/components/FundDetails';
 
-import { FundPaper, PaperContainer } from './styles';
+import { PaperContainer } from './styles';
 
 const FundIndex: FC = () => {
     const { funds } = useApp();
@@ -14,9 +15,7 @@ const FundIndex: FC = () => {
     return (
         <PaperContainer>
             {funds.map(fund => (
-                <FundPaper key={fund.id}>
-                    <RouteLink to={generateUrl(fund.id)}>{fund.name}</RouteLink>
-                </FundPaper>
+                <FundDetails key={fund.id} fund={fund} />
             ))}
         </PaperContainer>
     );
