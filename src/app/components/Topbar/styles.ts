@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { TOPBAR_HEIGHT } from 'app/app-constants';
-import { NavLink, NavLinkProps } from 'react-router-dom';
+import { SIDEBAR_WIDTH, TOPBAR_HEIGHT } from 'app/app-constants';
 
 export const TopbarContainer = styled.div`
     z-index: 10;
@@ -17,16 +16,13 @@ export const Header = styled.div`
     min-width: 100%;
 `;
 
-export const LogoLink = styled(NavLink)<NavLinkProps>`
-    width: 176px;
-    height: ${TOPBAR_HEIGHT};
+export const LogoContainer = styled.div`
+    width: ${SIDEBAR_WIDTH};
+    display: flex;
+    justify-content: center;
 `;
 
 export const AumniLogo = styled.img`
-    width: 100%;
-    height: 100%;
-`;
-
-export const FundSelectorContainer = styled.div`
-    padding: 16px;
+    width: 176px;
+    height: ${TOPBAR_HEIGHT};
 `;
