@@ -5,7 +5,7 @@ import SiteTitle from 'app/components/SiteTitle';
 import NotFound from 'app/components/NotFound/NotFound';
 
 const Company: FC = () => {
-    const { funds, selectedCompany } = useApp();
+    const { selectedCompany } = useApp();
 
     if (!selectedCompany) {
         return <NotFound />;
