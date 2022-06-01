@@ -45,7 +45,7 @@ const Sidebar: FC = () => {
 
     return (
         <SidebarContainer>
-            <List>
+            <List disablePadding>
                 {renderFundLink}
                 {renderFundCompanies}
             </List>

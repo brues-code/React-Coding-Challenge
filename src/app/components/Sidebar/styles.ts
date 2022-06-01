@@ -13,7 +13,3 @@ export const SidebarContainer = styled.div`
     z-index: 2;
     box-shadow: inset -1px 0 0 0 ${props => props.theme.color.$Navy_l4};
 `;
-
-export const MenuContainer = styled.div`
-    padding: 16px 8px;
-`;
