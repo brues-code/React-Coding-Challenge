@@ -12,8 +12,6 @@ interface OwnProps {
     fund: Fund;
 }
 
-const roundToNearestTenth = (value: number) => Math.round(10 * value) / 10;
-
 const TableColumns = (fund: Fund): Array<Column<Company>> => {
     const { formatMessage, formatNumber, formatDate } = useIntl();
 
@@ -25,7 +23,6 @@ const TableColumns = (fund: Fund): Array<Column<Company>> => {
     return useMemo(
         (): Array<Column<Company>> => [
             {
-                title: formatMessage({ id: 'companyTable.header.company' }),
                 field: 'name',
                 render: company => <RouteLink to={generateUrl(fund.id, company.id)}>{company.name}</RouteLink>
             },
@@ -51,7 +48,7 @@ const TableColumns = (fund: Fund): Array<Column<Company>> => {
             {
                 title: formatMessage({ id: 'companyTable.header.multiple' }),
                 field: 'multiple',
-                render: company => roundToNearestTenth(company.impliedValue / company.cost),
+                render: company => Math.round(100 * (company.impliedValue / company.cost)) / 100,
                 customSort: (rowA, rowB) => {
                     const rowAMultiple = rowA.impliedValue / rowA.cost;
                     const rowBMultiple = rowB.impliedValue / rowB.cost;
