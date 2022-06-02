@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { RouteObject, useRoutes } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
 
 import { FUND, COMPANY } from './route-paths';
 

@@ -9,18 +9,13 @@ import { AppBodyContainer, AppContainer } from './styles';
 
 const AppLayout: FC = ({ children }) => {
     const { selectedFund, selectedCompany } = useApp();
-    const renderSidebar = useMemo(() => Boolean(selectedFund), [selectedFund]);
-
-    if (!selectedFund) {
-        return null;
-    }
 
     return (
         <>
             <Topbar />
             <AppContainer>
-                {renderSidebar && <Sidebar selectedFund={selectedFund} selectedCompany={selectedCompany} />}
-                <AppBodyContainer sidebarVisible={renderSidebar}>{children}</AppBodyContainer>
+                {selectedFund && <Sidebar selectedFund={selectedFund} selectedCompany={selectedCompany} />}
+                <AppBodyContainer sidebarVisible={Boolean(selectedFund)}>{children}</AppBodyContainer>
             </AppContainer>
         </>
     );
