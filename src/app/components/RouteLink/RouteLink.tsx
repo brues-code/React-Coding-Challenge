@@ -1,10 +1,8 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import { Link as RouterLink, LinkProps } from 'react-router-dom';
 import { Link } from '@material-ui/core';
 
-type OwnProps = Pick<LinkProps, 'to'> & {
-    children?: ReactNode;
-};
+type OwnProps = Pick<LinkProps, 'to'>;
 
 const RouteLink: FC<OwnProps> = ({ children, to }) => (
     <Link component={RouterLink} to={to}>

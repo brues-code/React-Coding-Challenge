@@ -1,4 +1,4 @@
-import React, { createContext, FC, ReactNode, useContext, useMemo, useState } from 'react';
+import React, { createContext, FC, useContext, useMemo, useState } from 'react';
 import { useCookies } from 'react-cookie';
 
 import { Locales, Cookies } from 'enums';
@@ -23,13 +23,9 @@ const initialState: State = {
     currentLocale: DEFAULT_LOCALE
 };
 
-interface OwnProps {
-    children?: ReactNode;
-}
-
 export const AppContext = createContext(initialState);
 
-const AppContextProvider: FC<OwnProps> = ({ children }) => {
+const AppContextProvider: FC = ({ children }) => {
     const { fundId, companyId } = useRoutingParams();
     const [cookies] = useCookies();
 

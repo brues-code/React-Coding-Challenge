@@ -1,4 +1,4 @@
-import React, { ReactNode, FC } from 'react';
+import * as React from 'react';
 import { useIntl } from 'react-intl';
 
 import { HOME } from 'app/route-paths';
@@ -9,7 +9,7 @@ import RouteLink from 'app/components/RouteLink';
 import logo from 'images/logo.png';
 import { TopbarContainer, Header, AumniLogo, LogoContainer } from './styles';
 
-const Topbar = () => {
+const Topbar: React.FC = () => {
     const { formatMessage } = useIntl();
     return (
         <TopbarContainer>
