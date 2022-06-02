@@ -3,24 +3,29 @@ import { useIntl } from 'react-intl';
 import { List } from '@material-ui/core';
 import { MonetizationOn } from '@material-ui/icons';
 
+import { Company } from 'types/company';
+import { Fund } from 'types/fund';
 import { generateUrl } from 'app/route-paths';
 
-import { useApp } from 'app/context/AppContext';
 import ListItemLink from 'app/components/ListItemLink';
 
 import { SidebarContainer } from './styles';
 
-const Sidebar: FC = () => {
-    const { selectedCompany, selectedFund } = useApp();
+interface OwnProps {
+    selectedCompany?: Company | null;
+    selectedFund: Fund;
+}
+
+const Sidebar: FC<OwnProps> = ({ selectedCompany, selectedFund }) => {
     const { formatMessage } = useIntl();
 
     const renderFundLink = useMemo(
         () => (
             <ListItemLink
                 avatar={<MonetizationOn />}
-                key={selectedFund!.name}
+                key={selectedFund.name}
                 selected={!selectedCompany}
-                to={generateUrl(selectedFund!.id)}
+                to={generateUrl(selectedFund.id)}
             >
                 {formatMessage({ id: 'sidebar.fund.overview.link' })}
             </ListItemLink>
