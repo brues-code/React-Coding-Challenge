@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { useApp } from 'app/context/AppContext';
 import SiteTitle from 'app/components/SiteTitle';
 import NotFound from 'app/components/NotFound/NotFound';
+import CompanyTable from '../components/CompanyTable';
 
 const Fund: FC = () => {
     const { selectedFund } = useApp();
@@ -14,9 +15,7 @@ const Fund: FC = () => {
     return (
         <>
             <SiteTitle documentTitle={selectedFund.name} />
-            {selectedFund.companies.map(company => (
-                <React.Fragment key={company.id}>{company.name}</React.Fragment>
-            ))}
+            <CompanyTable fund={selectedFund} />
         </>
     );
 };
