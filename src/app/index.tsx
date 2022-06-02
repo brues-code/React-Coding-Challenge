@@ -6,7 +6,7 @@ import { FUND, COMPANY } from './route-paths';
 import Providers from 'app/context/Providers';
 import Dashboard from './Dashboard';
 import Fund from './Fund';
-import Company from './Company';
+import CompanyView from './CompanyView';
 
 import './App.css';
 
@@ -22,7 +22,7 @@ const Routes = () => {
         },
         {
             path: COMPANY,
-            element: <Company />
+            element: <CompanyView />
         }
     ];
 
