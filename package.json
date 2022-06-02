@@ -13,6 +13,7 @@
         "eslint-loader": "^4.0.2",
         "eslint-plugin-react": "^7.30.0",
         "eslint-plugin-react-hooks": "^4.5.0",
+        "material-table": "1.69.3",
         "react": "^17.0.2",
         "react-cookie": "^4.1.1",
         "react-dom": "^17.0.2",
