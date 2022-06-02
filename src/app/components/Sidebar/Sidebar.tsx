@@ -15,27 +15,29 @@ const Sidebar: FC = () => {
     const { formatMessage } = useIntl();
 
     const renderFundLink = useMemo(
-        () => (
-            <ListItemLink
-                avatar={<MonetizationOn />}
-                key={selectedFund!.name}
-                selected={!selectedCompany}
-                to={generateUrl(selectedFund!.id)}
-            >
-                {formatMessage({ id: 'sidebar.fund.overview.link' })}
-            </ListItemLink>
-        ),
+        () =>
+            selectedFund && (
+                <ListItemLink
+                    avatar={<MonetizationOn />}
+                    key={selectedFund.id}
+                    selected={!selectedCompany}
+                    to={generateUrl(selectedFund.id)}
+                >
+                    {formatMessage({ id: 'sidebar.fund.overview.link' })}
+                </ListItemLink>
+            ),
         [selectedFund, formatMessage, selectedCompany]
     );
 
     const renderFundCompanies = useMemo(
         () =>
-            selectedFund!.companies.map(company => (
+            selectedFund &&
+            selectedFund.companies.map(company => (
                 <ListItemLink
+                    avatar={{ alt: company.name, src: company.logo }}
                     key={company.id}
                     selected={selectedCompany?.id === company.id}
-                    to={generateUrl(selectedFund!.id, company.id)}
-                    avatar={{ alt: company.name, src: company.logo }}
+                    to={generateUrl(selectedFund.id, company.id)}
                 >
                     {company.name}
                 </ListItemLink>

@@ -1,4 +1,4 @@
-import React, { useMemo, FC } from 'react';
+import React, { useMemo, FC, ReactNode } from 'react';
 
 import { useApp } from 'app/context/AppContext';
 
@@ -7,7 +7,11 @@ import Sidebar from 'app/components/Sidebar';
 
 import { AppBodyContainer, AppContainer } from './styles';
 
-const AppLayout: FC = ({ children }) => {
+interface OwnProps {
+    children?: ReactNode;
+}
+
+const AppLayout: FC<OwnProps> = ({ children }) => {
     const { selectedFund } = useApp();
     const renderSidebar = useMemo(() => Boolean(selectedFund), [selectedFund]);
     return (
