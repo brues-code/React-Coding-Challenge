@@ -4,15 +4,12 @@ import { ThemeProvider } from 'styled-components';
 
 import { FUND, COMPANY } from './route-paths';
 
-import AppContextProvider from 'app/context/AppContext';
-import IntlContext from 'app/context/IntlContext';
+import Providers from 'app/context/Providers';
 import Dashboard from './Dashboard';
 import Fund from './Fund';
 import Company from './Company';
-import AppLayout from './layouts/AppLayout';
 
 import './App.css';
-import { color } from 'styles/theme';
 
 const Routes = () => {
     const routes: RouteObject[] = [
@@ -33,14 +30,6 @@ const Routes = () => {
     return useRoutes(routes);
 };
 
-const App = () => (
-    <ThemeProvider theme={{ color }}>
-        <AppContextProvider>
-            <IntlContext>
-                <AppLayout>{Routes()}</AppLayout>
-            </IntlContext>
-        </AppContextProvider>
-    </ThemeProvider>
-);
+const App = () => <Providers>{Routes()}</Providers>;
 
 export default App;
