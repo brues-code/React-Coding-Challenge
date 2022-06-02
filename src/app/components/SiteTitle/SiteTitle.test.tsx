@@ -14,9 +14,6 @@ describe('<SiteTitle />', () => {
             </Providers>
         </MemoryRouter>
     );
-    it('renders', () => {
-        render(<SiteTitleTest />);
-    });
     it('changes documentTitle', async () => {
         render(<SiteTitleTest />);
         await waitFor(() => expect(document.title).toEqual('TEST | Aumni Fund'));
