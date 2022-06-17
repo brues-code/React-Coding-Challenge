@@ -2,7 +2,7 @@ import { Messages } from 'types/i18n';
 
 const messages: Messages = {
     '404.error.message': 'Sorry, the resource you were looking for could not be found.',
-    'aumni.logo.alt': 'Aumni Fund',
+    'aumni.logo.alt': 'Venture Fund',
     'companyTable.header.company': 'Company',
     'companyTable.header.cost': 'Cost',
     'companyTable.header.founded': "Founded",
@@ -15,7 +15,7 @@ const messages: Messages = {
     'fundSelector.dropdown.placeholder': 'Select a fund',
     'sidebar.fund.overview.link': 'Fund Overview',
     index: 'Index',
-    siteHeader: '{documentTitle} | Aumni Fund'
+    siteHeader: '{documentTitle} | Venture Fund'
 };
 
 export default messages;
