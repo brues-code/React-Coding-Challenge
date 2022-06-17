@@ -1,6 +1,3 @@
-<img src="https://aumni-public.s3.amazonaws.com/AumniLogoColor.png" alt="Aumni Logo" width="200" height="55">
-
-# Aumni Frontend Coding Challenge
 The purpose of this coding challenge is to gauge knowledge in React and JavaScript. In the coding challenge, you will build a React application that displays a very small subset of our domain at Aumni. Below you will find some helpful terminology to help you understand what these domain-specific terms mean.
 
 ## Terminology
@@ -45,8 +42,3 @@ You will find mock JSON data in the `src/mocks` directory of this project.
 - [ ] The code follows React/JavaScript best practices.
 - [ ] The code has good test coverage.
 - [ ] Your Git commit history is clean and meaningful.
-
-## Submission
-
-1. When you have your final commit complete, please zip up your entire folder.
-2. Once you have coding submission zipped up, please upload it as per ![UploadSubmission.png](https://github.com/Aumni-Fund/node-coding-challenge/blob/master/UploadSubmission.png).
